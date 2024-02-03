@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { auth } from '../utils/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,13 +9,17 @@ import { SUPPORTED_LANG } from '../utils/constant';
 import { changLang } from '../utils/configSlice';
 
 const Header = () => {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [showHeader, setShowHeader] = useState(false);
 
     const showGptSearchView1 = useSelector(store => store.gpt.showGptSearch);
 
 
     const handleSignOut = () => {
+
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
@@ -58,7 +62,7 @@ const Header = () => {
         <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between'>
             <div><img className='w-44' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
                 alt='netflix-logo' /></div>
-            <div className='flex'>
+            <div className='flex' ONCL>
 
                 {!showGptSearchView1 && <select className='p-2 m-2 bg-gray-900 text-white rounded-lg'
                     onChange={handleLangChange}>
@@ -69,7 +73,8 @@ const Header = () => {
                     onClick={handleGPTclicked}>
                     {!showGptSearchView1 ? "Homepage" : "GPT Search"}</button>
                 <img className='w-9 h-9 m-3' src="https://catastic.pet/wp-content/uploads/2023/04/white-british-cat-are-wear-sunglass-shirt-concept-summer-yellow-background-1.jpg" alt='dp' />
-                <button className='font-bold text-white' onClick={handleSignOut}>Sign out</button></div>
+                <button className='font-bold text-white' onClick={handleSignOut}>Sign out</button>
+            </div>
 
         </div>
     )
