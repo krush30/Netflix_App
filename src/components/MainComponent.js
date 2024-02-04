@@ -15,7 +15,7 @@ const MainComponent = () => {
 
 
     return (
-        <div>
+        <div className='pt-[30%] md:pt-0 bg-black'>
 
             <VideoInfo title={title} overview={overview} release_date={release_date} id={id} />
             <VideoTrailer />

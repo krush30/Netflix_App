@@ -59,20 +59,20 @@ const Header = () => {
         dispatch(changLang(e.target.value))
     }
     return (
-        <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between'>
-            <div><img className='w-44' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
+        <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-center md:justify-between '>
+            <div><img className=' w-44 mx-auto md:mx-0' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
                 alt='netflix-logo' /></div>
-            <div className='flex' ONCL>
+            <div className='flex justify-between ' ONCL>
 
                 {!showGptSearchView1 && <select className='p-2 m-2 bg-gray-900 text-white rounded-lg'
                     onChange={handleLangChange}>
                     {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
                 </select>}
 
-                <button className='py-2 px-4 m-2 mx-4 bg-purple-800 text-white rounded-lg'
+                <button className='py-2 px-4 m-2 mx-4 bg-purple-800 text-white rounded-lg '
                     onClick={handleGPTclicked}>
                     {!showGptSearchView1 ? "Homepage" : "GPT Search"}</button>
-                <img className='w-9 h-9 m-3' src="https://catastic.pet/wp-content/uploads/2023/04/white-british-cat-are-wear-sunglass-shirt-concept-summer-yellow-background-1.jpg" alt='dp' />
+                <img className='w-9 h-9 m-3 hidden md:block rounded-lg' src="https://catastic.pet/wp-content/uploads/2023/04/white-british-cat-are-wear-sunglass-shirt-concept-summer-yellow-background-1.jpg" alt='dp' />
                 <button className='font-bold text-white' onClick={handleSignOut}>Sign out</button>
             </div>
 
