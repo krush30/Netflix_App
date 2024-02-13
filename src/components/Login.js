@@ -9,6 +9,8 @@ import { addUser } from '../utils/appSlice';
 import { BG_IMG } from '../utils/constant';
 
 const Login = () => {
+
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const name = useRef(null);
@@ -23,6 +25,7 @@ const Login = () => {
     }
 
     const handleClicks = () => {
+
 
         const message = checkValidate(email.current.value, password.current.value);
         setErrorMessage(message);
@@ -79,7 +82,7 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img className=' h-screen object-cover md:h-auto  ' src={BG_IMG}
+                <img className=' h-screen object-cover md:h-auto no-scrollbar ' src={BG_IMG}
                     alt='netflix-bg' />
             </div>
             <form onSubmit={(e) => e.preventDefault()} className='py-24 rounded-lg w-full md:w-3/12 p-12 bg-black absolute my-36 mx-auto right-0 left-0 text-white bg-opacity-80'>

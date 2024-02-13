@@ -1,5 +1,4 @@
 import React from 'react'
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import { useSelector } from 'react-redux';
 import MovieList from './MovieList';
 
